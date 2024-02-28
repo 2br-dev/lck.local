@@ -1,0 +1,70 @@
+body{
+	
+	background-color: $paper;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	letter-spacing: 0.05ch;
+
+	& .tooltip{
+		font-size: 16px;
+		line-height: 1em;
+	}
+
+	& main{
+		flex-grow: 1;
+	}
+
+	& strong{
+		color: $accent;
+	}
+
+	& .bttn{
+		
+		background-color: $accent;
+		color: $paper;
+		line-height: 2.5em;
+		padding: 0 1em;
+		display: inline-block;
+		border-radius: clamp(4px, 2vw, 12px);
+		transition: color .2s, background-color .2s;
+		text-transform: lowercase;
+
+		&-white{
+
+			@extend .bttn;
+			background-color: white;
+			color: $paper;
+
+			&:hover{
+				background-color: $accent;
+				color: #fff;
+			}
+		}
+
+		&-outline{
+
+			@extend .bttn;
+			background-color: transparent;
+			color: #fff;
+			box-shadow: 0 0 0 1px #fff inset;
+
+			&:hover{
+				background-color: rgba(#fff, .2);
+			}
+		}
+	}
+
+	& a{
+		color: $accent;
+	}
+
+	& .margin-bottom{
+		margin-bottom: $gutter-width;
+	}
+
+	& .no-margin{
+		margin: 0;
+	}
+}

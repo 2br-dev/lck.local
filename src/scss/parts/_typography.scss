@@ -1,0 +1,50 @@
+@import 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css';
+
+@font-face {
+	font-family: 'Vela Sans';
+	src: url('/fonts/VelaSans-Regular.otf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Science Gothic';
+	src: url('/fonts/science-gothic.ttf');
+}
+
+body{
+
+	font-family: 'Vela Sans';
+	font-size: clamp(18px, 2vw, 24px);
+	line-height: 1.4em;
+	
+	& input{
+		font-family: 'Vela Sans';
+	}
+
+	& h1, & h2, & h3, & h4{
+		line-height: 1.4em;
+		font-family: 'Science Gothic';
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	& h1{
+		font-size: clamp(26px, 5vw, 64px);
+		font-variation-settings: 'wght' 400;
+	}
+
+	& h2{
+		font-size: clamp(26px, 5vw, 48px);
+		font-variation-settings: 'wght' 400;
+	}
+
+	& h3{
+		font-size: clamp(20px, 5vw, 42px);
+		font-variation-settings: 'wght' 300;
+	}
+
+	& h4{
+		font-size: clamp(18px, 5vw, 32px);
+		font-variation-settings: 'wght' 300;
+	}
+}

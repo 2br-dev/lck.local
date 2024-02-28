@@ -1,0 +1,38 @@
+[
+	{
+		"name": "camera",
+		"alias": "Камера высокого<br /> разрешения (4К)"
+	},
+	{
+		"name": "lamps",
+		"alias": "Система <br />освещения"
+	},
+	{
+		"name": "main-screen",
+		"alias": "Система сменных <br /> фонов + хромакей"
+	},
+	{
+		"name": "projector",
+		"alias": "Проекционное <br /> оборудование"
+	},
+	{
+		"name": "screens-system",
+		"alias": "Система экранов <br />спикера"
+	},
+	{
+		"name": "sensor-screen",
+		"alias": "Сенсорная стеклянная доска"
+	},
+	{
+		"name": "assistent-place",
+		"alias": "Место ассистента спикера"
+	},
+	{
+		"name": "server",
+		"alias": "Управляющий <br /> сервер"
+	},
+	{
+		"name": "sufler",
+		"alias": "Студийный <br /> телесуфлёр"
+	}
+]

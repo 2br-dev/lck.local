@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 1920 862">
+  <defs>
+    <radialGradient id="b" cx="882.41" cy="235.07" r="1074.59" fx="882.41" fy="235.07" gradientTransform="matrix(1 0 0 .66 0 80.95)" gradientUnits="userSpaceOnUse">
+      <stop offset=".69" stop-color="#141414"/>
+      <stop offset=".76" stop-color="#181919"/>
+      <stop offset=".85" stop-color="#272727"/>
+      <stop offset=".95" stop-color="#3e3f40"/>
+      <stop offset="1" stop-color="#4d4e4f"/>
+    </radialGradient>
+    <radialGradient id="c" cx="1036.35" cy="528.15" r="95.23" fx="1036.35" fy="528.15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".25" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".39" stop-color="#fff" stop-opacity=".04"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".09"/>
+      <stop offset=".59" stop-color="#fff" stop-opacity=".17"/>
+      <stop offset=".68" stop-color="#fff" stop-opacity=".27"/>
+      <stop offset=".76" stop-color="#fff" stop-opacity=".39"/>
+      <stop offset=".83" stop-color="#fff" stop-opacity=".53"/>
+      <stop offset=".9" stop-color="#fff" stop-opacity=".7"/>
+      <stop offset=".96" stop-color="#fff" stop-opacity=".89"/>
+      <stop offset="1" stop-color="#fff"/>
+    </radialGradient>
+    <radialGradient id="d" cx="1078.51" cy="306.46" r="63.88" fx="1078.51" fy="306.46" gradientTransform="matrix(1.43 0 0 1 -576.95 190.12)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".06" stop-color="#fff" stop-opacity=".88"/>
+      <stop offset=".19" stop-color="#fff" stop-opacity=".65"/>
+      <stop offset=".32" stop-color="#fff" stop-opacity=".45"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".29"/>
+      <stop offset=".57" stop-color="#fff" stop-opacity=".16"/>
+      <stop offset=".68" stop-color="#fff" stop-opacity=".07"/>
+      <stop offset=".8" stop-color="#fff" stop-opacity=".02"/>
+      <stop offset=".89" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="e" cx="1192.19" cy="543.83" r="820.67" fx="1192.19" fy="543.83" gradientTransform="matrix(1 0 0 .61 0 210.97)" gradientUnits="userSpaceOnUse">
+      <stop offset=".32" stop-color="#fff"/>
+      <stop offset=".37" stop-color="#fff" stop-opacity=".88"/>
+      <stop offset=".46" stop-color="#fff" stop-opacity=".65"/>
+      <stop offset=".56" stop-color="#fff" stop-opacity=".45"/>
+      <stop offset=".66" stop-color="#fff" stop-opacity=".29"/>
+      <stop offset=".75" stop-color="#fff" stop-opacity=".16"/>
+      <stop offset=".84" stop-color="#fff" stop-opacity=".07"/>
+      <stop offset=".93" stop-color="#fff" stop-opacity=".02"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="a">
+      <path fill="none" d="M0-919.02h1920v845H0z"/>
+    </clipPath>
+  </defs>
+  <path fill="#131413" d="M0 0h1920v862H0z"/>
+  <g fill="none" clip-path="url(#a)">
+    <circle cx="882.41" cy="242.14" r="693.06" fill="url(#b)"/>
+  </g>
+  <circle cx="1021.19" cy="516.59" r="76.42" fill="#131414"/>
+  <circle cx="1021.19" cy="516.59" r="76.42" fill="url(#c)" opacity=".31"/>
+  <ellipse cx="969.73" cy="496.58" fill="url(#d)" opacity=".2" rx="91.61" ry="63.88" transform="rotate(-69.86 969.757 496.579)"/>
+  <circle cx="-535.06" cy="-97.54" r="1518.63" fill="url(#e)" fill-opacity=".71"/>
+</svg>

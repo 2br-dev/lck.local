@@ -1,0 +1,89 @@
+header{
+
+	position: sticky;
+	top: -1px;
+	z-index: 200;
+	font-size: 16px;
+	margin-top: 36px;
+
+	& .container{
+
+		display: flex;
+		justify-content: space-between;
+
+		& .logo-wrapper{
+			display: flex;
+			align-items: center;
+
+			& a{
+				color: #fff;
+				margin-right: 6px;
+			}
+		}
+
+		& .logo{
+			width: 54px;
+			aspect-ratio: 3 / 4;
+			display: block;
+			background-image: url(/img/logo_header.svg);
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+
+		& nav{
+
+			display: flex;
+			align-items: center;
+
+			& ul{
+				margin: 0;
+				display: flex;
+				align-items: center;
+				border-radius: 60px;
+				background-color: rgba(white, .2);
+
+				& a{
+					border-radius: 60px;
+					color: #fff;
+					margin: 0;
+					background-color: transparent;
+					line-height: 2.5em;
+					display: inline-block;
+					padding: 0 1em;
+
+					&:hover{
+						background-color: rgba(#fff, .2);
+					}
+
+					&.active{
+						background-color: #fff;
+						color: $paper;
+					}
+				}
+			}
+
+			& a:not(.burger){
+
+				&.bttn{
+					margin-left: .5em;
+					border-radius: 60px;
+
+					&-outline{
+						background: transparent;
+						color: #fff;
+
+						&:hover{
+							background-color: rgba(white, .2);
+						}
+					}
+				}
+			}
+
+			& .burger{
+				font-size: 32px;
+				color: #fff;
+				margin-left: 16px;
+			}
+		}
+	}
+}

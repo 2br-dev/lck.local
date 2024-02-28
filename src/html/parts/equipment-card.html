@@ -1,0 +1,20 @@
+<div class="col xl3 l6 m6 s6 xs12 vmargin">
+	<div class="equipment-card">
+		<h4>@@title</h4>
+		<div class="description">
+			@@if(context.description){
+				<p>@@description</p>
+			}
+			@@if(context.points){
+				<ul class="browser-default">
+					@@for(let i=0; i<points.length; i++){
+						<li>` + points[i] + `</li>
+					}
+				</ul>
+			}
+		</div>
+		<div class="img-wrapper">
+			<img data-src="@@image" alt="" class="responsive-img lazy">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+//= Media queries ========================================
+//= Less, then extra-small	// T (tiny)
+$extra-small: 400px;			// XS (extra-small)
+$small: 600px;						// S (small)
+$medium: 850px;						// M (medium)
+$large: 1200px;						// L (large)
+$extra-large: 1800px;			// XL (extra-large)
+$huge: 1901px;						// H (huge)
+
+//= Columns gutter =======================================
+$cols: 12;								// Column-count
+$gutter-width: 20px;			// Space between columns
+
+$paper: #131413;
+$accent: #BD89FF;

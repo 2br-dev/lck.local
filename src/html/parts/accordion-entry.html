@@ -1,0 +1,31 @@
+<article>
+	<div class="article-header waves-effect waves-light">
+		<span>@@title</span>
+		<i class="bx bx-plus"></i>
+	</div>
+	<div class="article-body">
+
+		<img data-src="@@image" alt="@@title" class="lazy responsive-img">
+		@@if(context.intro){
+
+			@@for(let i=0; i<intro.length; i++){
+				<p>` + intro[i] + `</p>
+			}
+		}
+		@@if(context.chartitle){
+			<h4>@@chartitle</h4>
+		}
+		@@if(context.chars){
+			@@for(let i=0; i<chars.length; i++) { 
+				<div class="kv-pair">
+				@@if(` + chars[i].value + ` != ""){
+					<div class="value">` + chars[i].value + `</div>
+				}
+				@@if(` + chars[i].key + ` != ""){
+					<div class="key">` + chars[i].key + `</div>
+				}
+				</div>
+			}
+		}
+	</div>
+</article>

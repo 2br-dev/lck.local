@@ -1,0 +1,540 @@
+body {
+    background-image: url(/img/main_bg.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body main#main section {
+    padding: 2vmax 0;
+}
+
+body main#main section#hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+body main#main section#about {
+    padding-bottom: 0;
+}
+
+body main#main section#about .unique {
+    background-image: url(/img/block2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-top: 60px;
+}
+
+body main#main section#about .unique .container {
+    position: relative;
+    z-index: 1;
+}
+
+body main#main section#about .unique .video-wrapper video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+body main#main section#about .unique .diamond {
+    width: clamp(20px, 20vw, 300px);
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    background-image: url("/img/crystal.png");
+    background-size: contain;
+    right: 20px;
+    top: 10%;
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .unique .diamond {
+        display: none;
+    }
+}
+
+body main#main section#about .unique .torus {
+    width: clamp(20px, 20vw, 300px);
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    background-image: url("/img/torus.png");
+    background-size: contain;
+    left: 20px;
+    top: 20%;
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .unique .torus {
+        display: none;
+    }
+}
+
+body main#main section#about .equipment-wrapper, body main#main section#about .maintenance-wrapper {
+    padding: clamp(15px, 2vw, 20px) clamp(5px, 2vw, 20px);
+    border-radius: clamp(6px, 2vw, 16px);
+    margin: 4vmax 0;
+    position: relative;
+    z-index: 1;
+}
+
+body main#main section#about .equipment-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: clamp(6px, 2vw, 15px);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+body main#main section#about .equipment-card h4 {
+    margin: 0;
+}
+
+body main#main section#about .equipment-card ul {
+    padding-left: 1em;
+}
+
+body main#main section#about .equipment-card .description {
+    flex-grow: 1;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+body main#main section#about .equipment-card .img-wrapper {
+    text-align: right;
+}
+
+body main#main section#about .equipment-card .img-wrapper img {
+    display: block;
+    margin-left: auto;
+    border-radius: 100px;
+    max-width: 40%;
+}
+
+body main#main section#about .app {
+    padding: 2vmax 0;
+    mix-blend-mode: screen;
+    overflow: hidden;
+}
+
+body main#main section#about .app .lazy {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body main#main section#about .app .level1 {
+    aspect-ratio: 3 / 1;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .app .level1 {
+        background-size: 160% auto;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .app .level1 {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+body main#main section#about .app .level1 > * {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+body main#main section#about .app .level1 .level2 {
+    display: initial;
+    transform: translateZ(40px);
+}
+
+@media (min-width: 2000px) {
+    body main#main section#about .app .level1 .level2 {
+        transform: translateZ(80px) scale(0.8);
+    }
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .app .level1 .level2 {
+        background-size: 160% auto;
+    }
+}
+
+body main#main section#about .app .level1 .level3 {
+    display: initial;
+    transform: translateZ(100px);
+}
+
+@media (min-width: 2000px) {
+    body main#main section#about .app .level1 .level3 {
+        transform: translateZ(160px) scale(0.8);
+    }
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .app .level1 .level3 {
+        background-size: 160% auto;
+    }
+}
+
+body main#main section#about .app .level1 .level4 {
+    display: initial;
+    transform: translateZ(180px);
+}
+
+@media (min-width: 2000px) {
+    body main#main section#about .app .level1 .level4 {
+        transform: translateZ(360px) scale(0.8);
+    }
+}
+
+@media (max-width: 850px) {
+    body main#main section#about .app .level1 .level4 {
+        background-size: 160% auto;
+    }
+}
+
+body main#main section#about .app .button-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+body main#main section#about .crystal {
+    background-image: url(/img/block3.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 2vmax 0;
+}
+
+body main#main section#about .crystal .col .row {
+    height: 100%;
+}
+
+body main#main section#about .crystal .maintaince-card {
+    height: 100%;
+    font-size: 16px;
+    line-height: 1.4em;
+    background-color: #fff;
+    color: #131413;
+    padding: 20px;
+    border-radius: clamp(5px, 2vw, 16px);
+    min-height: 300px;
+}
+
+body main#main section#about .crystal .maintaince-card.friendly {
+    background-image: url(/img/friendly.jpg);
+    background-size: auto 70%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+body main#main section#about .crystal .maintaince-card h3 {
+    margin: 0;
+    font-size: clamp(21px, 3vw, 32px);
+    font-size: 24px !important;
+}
+
+body main#main section#about .maintenance-wrapper {
+    background-color: rgba(63, 63, 63, 0.7);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+body main#main section#rent {
+    background-image: url(/img/block1.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body main#main section#rent .cube {
+    width: clamp(20px, 20vw, 300px);
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    background-image: url("/img/cube.png");
+    background-size: contain;
+    top: -260%;
+    right: 0;
+}
+
+@media (max-width: 850px) {
+    body main#main section#rent .cube {
+        display: none;
+    }
+}
+
+body main#main section#rent .container {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .col .row .col {
+        padding: 0;
+    }
+}
+
+body main#main section#rent h2 {
+    margin-top: 0;
+}
+
+body main#main section#rent .rent-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body main#main section#rent .rent-text p {
+    margin-top: 0;
+}
+
+body main#main section#rent .rent-wrapper .row {
+    margin: 0 clamp(0px, 2vw, 40px);
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .rent-wrapper .row {
+        margin: 0;
+    }
+}
+
+body main#main section#rent .rent-wrapper:after {
+    content: '';
+    display: block;
+    aspect-ratio: 6 / 1;
+    background-color: #BD89FF;
+    border-radius: clamp(12px, 2vw, 20px);
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .rent-wrapper:after {
+        display: none;
+    }
+}
+
+body main#main section#rent .rent-wrapper .rent-card {
+    aspect-ratio: 4 / 2.5;
+    border-radius: clamp(12px, 2vw, 20px);
+    padding: clamp(15px, 1vw, 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(45%);
+    background-color: #fff;
+    color: #131413;
+}
+
+body main#main section#rent .rent-wrapper .rent-card .price {
+    font-size: clamp(21px, 3vw, 46px);
+    line-height: 1.5em;
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .rent-wrapper .rent-card .price {
+        font-size: clamp(32px, 3vw, 46px);
+    }
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .rent-wrapper .rent-card {
+        transform: none;
+        margin-top: 20px;
+    }
+}
+
+body main#main section#rent .rent-wrapper .rent-card.glass-card {
+    color: #fff;
+    background-color: rgba(70, 70, 70, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: translateY(25%);
+}
+
+@media (max-width: 600px) {
+    body main#main section#rent .rent-wrapper .rent-card.glass-card {
+        transform: none;
+    }
+}
+
+body main#main section#gallery {
+    position: relative;
+    z-index: 1;
+}
+
+body main#main section#gallery .tabs-container .tabs {
+    background: transparent;
+    text-align: center;
+}
+
+body main#main section#gallery .tabs-container .tabs li a {
+    color: #fff;
+}
+
+body main#main section#gallery .tabs-container .tabs li a:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body main#main section#gallery .tabs-container .tabs li.indicator {
+    background-color: #fff;
+}
+
+body main#main section#gallery .gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+body main#main section#gallery .gallery-wrapper img {
+    display: block;
+    aspect-ratio: 1 / 1;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 20%;
+}
+
+@media (max-width: 1800px) {
+    body main#main section#gallery .gallery-wrapper img {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1200px) {
+    body main#main section#gallery .gallery-wrapper img {
+        width: 33.3333%;
+    }
+}
+
+@media (max-width: 850px) {
+    body main#main section#gallery .gallery-wrapper img {
+        width: 50%;
+    }
+}
+
+body main#main section#contacts {
+    overflow: hidden;
+}
+
+body main#main section#contacts #map {
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    min-height: 500px;
+    background-color: #222;
+    margin: 20px 0;
+}
+
+body main#main section#contacts h4 {
+    margin-bottom: 0;
+}
+
+body main#main section#contacts form {
+    align-items: flex-end;
+}
+
+body main#main section#contacts .input-field label {
+    display: block;
+    margin: 5px;
+}
+
+body main#main section#contacts .input-field input {
+    border: 0;
+    width: 100%;
+    display: block;
+}
+
+body main#main section#contacts .input-field input[type=text], body main#main section#contacts .input-field input[type=email] {
+    display: block;
+    width: 100%;
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 2.5em;
+    border: 0;
+    border-radius: clamp(4px, 2vw, 12px);
+    box-shadow: 0 0 0 1px #fff inset;
+    background-color: transparent;
+    color: #fff;
+    padding: 0 10px;
+}
+
+body main#main section#contacts .check-field input[type=checkbox] {
+    display: none;
+}
+
+body main#main section#contacts .check-field input[type=checkbox] ~ label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+body main#main section#contacts .check-field input[type=checkbox] ~ label:before {
+    content: '\ea42';
+    display: inline-block;
+    font-family: 'boxicons';
+    font-size: clamp(24px, 2vw, 32px);
+    transform: translateY(4px);
+}
+
+body main#main section#contacts .check-field input[type=checkbox]:checked ~ label:before {
+    content: '\ed33';
+}
+
+body main#main section#contacts input[type=submit] {
+    width: 100%;
+}
+
+body main#main section#faq .question-wrapper {
+    margin-bottom: 4px;
+}
+
+body main#main section#faq .question-wrapper .question {
+    display: flex;
+    align-items: center;
+    line-height: 1.4em;
+    padding: 15px;
+    justify-content: space-between;
+    background-color: #ccc;
+    color: #131413;
+    border-radius: clamp(5px, 2vw, 12px);
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+body main#main section#faq .question-wrapper .question:hover {
+    background-color: #fff;
+}
+
+body main#main section#faq .question-wrapper .question i {
+    transition: transform .4s;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    padding: 6px;
+}
+
+body main#main section#faq .question-wrapper .question.active {
+    background-color: #fff;
+}
+
+body main#main section#faq .question-wrapper .question.active i {
+    transform: rotate(135deg);
+}
+
+body main#main section#faq .question-wrapper .answer {
+    padding: clamp(5px, 2vw, 20px);
+    display: none;
+}
