@@ -86360,6 +86360,10 @@ document.body.addEventListener('mouseup', function (e) {
   endY = e.pageY;
 });
 (function () {
+  // Текущий год в Footer
+  var year = new Date().getFullYear();
+  document.querySelector('#year').textContent = year.toString();
+
   // Подсказки
   var tooltip = materialize_css__WEBPACK_IMPORTED_MODULE_3__.Tooltip.init(document.querySelectorAll('[data-tooltip]'));
 

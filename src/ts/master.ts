@@ -27,6 +27,10 @@ document.body.addEventListener('mouseup', (e:MouseEvent) => {
 
 (() => {
 
+	// Текущий год в Footer
+	let year = new Date().getFullYear();
+	document.querySelector('#year').textContent = year.toString();
+
 	// Подсказки
 	let tooltip = M.Tooltip.init(document.querySelectorAll('[data-tooltip]'));
 
