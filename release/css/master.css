@@ -3783,6 +3783,34 @@ body {
 body .tooltip {
     font-size: 16px;
     line-height: 1em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    body .tooltip {
+        pointer-events: all !important;
+    }
+}
+
+body .tooltip span {
+    display: block;
+    padding-right: 10px;
+}
+
+body .tooltip a {
+    font-size: 21px;
+    display: block;
+    color: #fff;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+}
+
+@media (min-width: 600px) {
+    body .tooltip a {
+        display: none;
+    }
 }
 
 body main {
@@ -3834,6 +3862,20 @@ body .margin-bottom {
 
 body .no-margin {
     margin: 0;
+}
+
+body ul.browser-default {
+    list-style-image: url("/img/bullet-leaf.svg");
+    padding-left: 1.5em;
+}
+
+body ul.browser-default li {
+    margin-bottom: .7em;
+    padding-left: .3em;
+}
+
+body canvas {
+    -tap-highlight-color: transparent;
 }
 
 header {

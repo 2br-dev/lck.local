@@ -238,7 +238,7 @@ class App{
 			resolve(this.mousepos);
 		}).then(() => {
 			this.triggerEvent('mousemove', this.mousepos);
-			this.checkIntersection();
+			this.checkIntersection(e);
 		})
 	}
 
@@ -430,7 +430,7 @@ class App{
 	/**
 	 * Проверка наличия пересечений для луча
 	 */
-	checkIntersection(){
+	checkIntersection(e:MouseEvent){
 
 		if(this.mousePressed) return;
 
@@ -464,7 +464,7 @@ class App{
 			}else{
 				this.selectedObjects = [];
 				this.outlinepass.selectedObjects = this.selectedObjects;
-				this.triggerEvent('lost-intersect');
+				this.triggerEvent('lost-intersect', e);
 			}
 		}else{
 			this.selectedObjects = [];

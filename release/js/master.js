@@ -171,7 +171,7 @@ var App = /*#__PURE__*/function () {
         resolve(_this2.mousepos);
       }).then(function () {
         _this2.triggerEvent('mousemove', _this2.mousepos);
-        _this2.checkIntersection();
+        _this2.checkIntersection(e);
       });
     }
 
@@ -344,7 +344,7 @@ var App = /*#__PURE__*/function () {
      */
   }, {
     key: "checkIntersection",
-    value: function checkIntersection() {
+    value: function checkIntersection(e) {
       if (this.mousePressed) return;
       var mousePos = new three__WEBPACK_IMPORTED_MODULE_0__.Vector2(this.mousepos.x, this.mousepos.y);
       this.raycaster.setFromCamera(mousePos, this.camera);
@@ -369,7 +369,7 @@ var App = /*#__PURE__*/function () {
         } else {
           this.selectedObjects = [];
           this.outlinepass.selectedObjects = this.selectedObjects;
-          this.triggerEvent('lost-intersect');
+          this.triggerEvent('lost-intersect', e);
         }
       } else {
         this.selectedObjects = [];
@@ -86619,6 +86619,29 @@ function initThreeApp() {
   tooltip.style.color = "white";
   tooltip.style.fontFamily = "sans-serif";
   tooltip.style.pointerEvents = 'none';
+  var name = document.createElement('span');
+  tooltip.appendChild(name);
+  var action = document.createElement('a');
+  action.className = 'bx bx-chevron-right';
+  action.setAttribute('href', 'javascript:void(0)');
+  tooltip.appendChild(action);
+  tooltip.addEventListener('click', function (e) {
+    var el = e.currentTarget;
+    el.style.display = "none";
+    var link = el.querySelector('a');
+    var alias = link.dataset['alias'];
+    var header = document.querySelector('header');
+    var headerHeight = (header === null || header === void 0 ? void 0 : header.getBoundingClientRect().height) || 0;
+    var listTarget = document.querySelector(".accordion [data-object-name=\"".concat(alias, "\"]"));
+    listTarget.classList.add('active');
+    var listTargetTop = listTarget.offsetTop - headerHeight;
+    var description = listTarget.nextElementSibling;
+    jquery__WEBPACK_IMPORTED_MODULE_2__('html, body').animate({
+      scrollTop: listTargetTop
+    }, 500, function () {
+      jquery__WEBPACK_IMPORTED_MODULE_2__(description).slideDown('fast');
+    });
+  });
   document.body.append(tooltip);
   var interactives = ["camera", "lamps", "main-screen", "projector", "screens-system", "sensor-screen", "assistent-place", "server", "sufler"];
   var statics = ["room", "office-woman", "girl", "cube-green", "cube-white", "chair"];
@@ -86673,31 +86696,54 @@ function initThreeApp() {
 
   // Скрытие тултипа по щелчку
   app.on('mousedown', function () {
-    tooltip.style.display = "none";
+    if (window.innerWidth >= 600) {
+      tooltip.style.display = "none";
+    }
   });
 
   // Перемещение тултипа
   app.on('mousemove', function (mousedata) {
-    tooltip.style.left = mousedata._x + 20 + "px";
     tooltip.style.top = mousedata._y + 20 + "px";
+    var left = mousedata._x + 20;
+    tooltip.style.left = left + "px";
+    var tooltipWidth = tooltip.getBoundingClientRect().width;
+    var tooltipLeft = tooltip.getBoundingClientRect().left;
+    var diff = window.innerWidth - (tooltipLeft + tooltipWidth + 40);
+    if (diff < 0) {
+      left -= Math.abs(diff);
+      tooltip.style.left = left + "px";
+    }
   });
 
   // Скрытие тултипа, когда за пределами приложения
   app.on('mouseleave', function () {
-    tooltip.style.display = "none";
+    if (window.innerWidth >= 600) {
+      tooltip.style.display = "none";
+    }
   });
 
   // Подсветка объекта под курсором мыши
   app.on('intersect', function (data) {
+    var tooltipText = tooltip.querySelector('span');
+    var tooltiplink = tooltip.querySelector('a');
+    tooltiplink.dataset['alias'] = data.object.name;
+    var alreadyFixed = tooltip.style.position == 'fixed';
+    var alreadyDisplay = tooltip.style.display == 'flex';
+    var alreadyText = tooltipText.innerHTML == getName(data.object.name);
+    if (!alreadyFixed) tooltip.style.position = 'fixed';
+    if (!alreadyDisplay) tooltip.style.display = 'flex';
+    if (!alreadyText) tooltipText.innerHTML = "".concat(getName(data.object.name));
     canvas.style.cursor = 'pointer';
     tooltip.style.top = data.mousePos._y + 20 + "px";
-    tooltip.style.left = data.mousePos._x + 20 + "px";
-    var alreadyFixed = tooltip.style.position == 'fixed';
-    var alreadyDisplay = tooltip.style.display == 'block';
-    var alreadyText = tooltip.innerHTML == getName(data.object.name);
-    if (!alreadyFixed) tooltip.style.position = 'fixed';
-    if (!alreadyDisplay) tooltip.style.display = 'block';
-    if (!alreadyText) tooltip.innerHTML = "".concat(getName(data.object.name));
+    var left = data.mousePos._x + 20;
+    tooltip.style.left = left + "px";
+    var tooltipWidth = tooltip.getBoundingClientRect().width;
+    var tooltipLeft = tooltip.getBoundingClientRect().left;
+    var diff = window.innerWidth - (tooltipLeft + tooltipWidth + 40);
+    if (diff < 0) {
+      left -= Math.abs(diff);
+      tooltip.style.left = left + "px";
+    }
     document.querySelectorAll('[data-alias]').forEach(function (el) {
       el.classList.remove('hover');
     });
@@ -86706,9 +86752,15 @@ function initThreeApp() {
   });
 
   // Снятие подсветки с объекта, когда курсор мыши ушёл с объекта
-  app.on('lost-intersect', function () {
+  app.on('lost-intersect', function (e) {
     canvas.style.cursor = 'default';
-    tooltip.style.display = 'none';
+    var path = e.composedPath();
+    var tooltipPath = path.filter(function (el) {
+      return el.className == 'tooltip';
+    });
+    if (!tooltipPath.length) {
+      tooltip.style.display = 'none';
+    }
     document.querySelectorAll('[data-alias]').forEach(function (el) {
       el.classList.remove('hover');
     });

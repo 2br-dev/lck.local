@@ -326,6 +326,37 @@ function initThreeApp(){
 	tooltip.style.color = "white";
 	tooltip.style.fontFamily = "sans-serif";
 	tooltip.style.pointerEvents = 'none';
+
+	let name = document.createElement('span');
+	tooltip.appendChild(name);
+
+	let action = document.createElement('a');
+	action.className = 'bx bx-chevron-right';
+	action.setAttribute('href', 'javascript:void(0)');
+
+	tooltip.appendChild(action);
+
+	tooltip.addEventListener('click', (e:MouseEvent) => {
+		let el = <HTMLElement>e.currentTarget;
+		el.style.display = "none";
+		let link = el.querySelector('a');
+		let alias = link.dataset['alias'];
+		let header = document.querySelector('header');
+		let headerHeight = header?.getBoundingClientRect().height || 0;
+
+		let listTarget = <HTMLElement>document.querySelector(`.accordion [data-object-name="${alias}"]`);
+		listTarget.classList.add('active');
+		let listTargetTop = listTarget.offsetTop - headerHeight;
+		let description = listTarget.nextElementSibling;
+
+		$('html, body').animate({ 
+			scrollTop: listTargetTop,
+		}, 500, function() {
+			$(description).slideDown('fast');
+		});
+		
+	})
+
 	document.body.append(tooltip);
 
 	let interactives = [
@@ -406,33 +437,63 @@ function initThreeApp(){
 
 	// Скрытие тултипа по щелчку
 	app.on('mousedown', () => {
-		tooltip.style.display = "none";
+		if(window.innerWidth >= 600){
+			tooltip.style.display = "none";
+		}
 	});
 
 	// Перемещение тултипа
 	app.on('mousemove', (mousedata:IMousePos) => {
-		tooltip.style.left = mousedata._x + 20 + "px"
 		tooltip.style.top = mousedata._y + 20 + "px"
+
+		let left = mousedata._x + 20;
+		tooltip.style.left = left + "px";
+		let tooltipWidth = tooltip.getBoundingClientRect().width;
+		let tooltipLeft = tooltip.getBoundingClientRect().left;
+		let diff = window.innerWidth - (tooltipLeft + tooltipWidth + 40);
+
+		if(diff < 0){
+			left -= Math.abs(diff);
+			tooltip.style.left = left + "px";
+		}
 	});
 
 	// Скрытие тултипа, когда за пределами приложения
 	app.on('mouseleave', () => {
-		tooltip.style.display = "none";
+		if(window.innerWidth >= 600){
+			tooltip.style.display = "none";
+		}
 	})
 
 	// Подсветка объекта под курсором мыши
 	app.on('intersect', (data:IHoverData) => {
-		canvas.style.cursor = 'pointer';
-		tooltip.style.top = data.mousePos._y + 20 + "px";
-		tooltip.style.left = data.mousePos._x + 20 + "px";
-		
+
+		let tooltipText = tooltip.querySelector('span');
+		let tooltiplink = tooltip.querySelector('a');
+
+		tooltiplink.dataset['alias'] = data.object.name;
+	
 		let alreadyFixed = tooltip.style.position == 'fixed';
-		let alreadyDisplay = tooltip.style.display == 'block';
-		let alreadyText = tooltip.innerHTML == getName(data.object.name);
+		let alreadyDisplay = tooltip.style.display == 'flex';
+		let alreadyText = tooltipText.innerHTML == getName(data.object.name);
 
 		if(!alreadyFixed) tooltip.style.position = 'fixed';
-		if(!alreadyDisplay) tooltip.style.display = 'block';
-		if(!alreadyText) tooltip.innerHTML = `${getName(data.object.name)}`;
+		if(!alreadyDisplay) tooltip.style.display = 'flex';
+		if(!alreadyText) tooltipText.innerHTML = `${getName(data.object.name)}`;
+
+		canvas.style.cursor = 'pointer';
+		tooltip.style.top = data.mousePos._y + 20 + "px";
+		
+		let left = data.mousePos._x + 20;
+		tooltip.style.left = left + "px";
+		let tooltipWidth = tooltip.getBoundingClientRect().width;
+		let tooltipLeft = tooltip.getBoundingClientRect().left;
+		let diff = window.innerWidth - (tooltipLeft + tooltipWidth + 40);
+
+		if(diff < 0){
+			left -= Math.abs(diff);
+			tooltip.style.left = left + "px";
+		}
 
 		document.querySelectorAll('[data-alias]').forEach((el:HTMLElement) =>{
 			el.classList.remove('hover');
@@ -444,9 +505,18 @@ function initThreeApp(){
 	})
 
 	// Снятие подсветки с объекта, когда курсор мыши ушёл с объекта
-	app.on('lost-intersect', () => {
+	app.on('lost-intersect', (e:MouseEvent) => {
 		canvas.style.cursor = 'default';
-		tooltip.style.display = 'none';
+
+		let path = e.composedPath();
+		let tooltipPath = path.filter((el:HTMLElement) => {
+			return el.className == 'tooltip'
+		});
+
+		if(!tooltipPath.length){
+			tooltip.style.display = 'none';
+		}
+
 
 		document.querySelectorAll('[data-alias]').forEach((el:HTMLElement) =>{
 			el.classList.remove('hover');

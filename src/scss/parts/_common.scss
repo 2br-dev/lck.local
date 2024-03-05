@@ -10,6 +10,31 @@ body{
 	& .tooltip{
 		font-size: 16px;
 		line-height: 1em;
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+
+		@media(max-width: 600px){
+			pointer-events: all !important;
+		}
+
+		& span{
+			display: block;
+			padding-right: 10px;
+		}
+
+		& a{
+
+			font-size: 21px;
+			display: block;
+			color: #fff;
+			border-left: 1px solid #fff;
+			padding-left: 10px;
+
+			@media(min-width: 600px){
+				display: none;
+			}
+		}
 	}
 
 	& main{
@@ -66,5 +91,22 @@ body{
 
 	& .no-margin{
 		margin: 0;
+	}
+
+	& ul.browser-default{
+
+		list-style-image: url('/img/bullet-leaf.svg');
+		padding-left: 1.5em;
+
+		& li{
+			margin-bottom: .7em;
+			padding-left: .3em;
+
+		}
+	}
+
+	& canvas{
+
+		-tap-highlight-color: transparent;
 	}
 }
