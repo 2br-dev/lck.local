@@ -11,6 +11,12 @@
 	src: url('/fonts/science-gothic.ttf');
 }
 
+@font-face {
+	font-family: 'Involve';
+	src: url('/fonts/Involve-Regular.ttf');
+	font-weight: normal;
+}
+
 body{
 
 	font-family: 'Vela Sans';
@@ -23,9 +29,9 @@ body{
 
 	& h1, & h2, & h3, & h4{
 		line-height: 1.4em;
-		font-family: 'Science Gothic';
-		font-weight: bold;
-		text-transform: uppercase;
+		font-family: 'Involve';
+		font-weight: normal;
+		// text-transform: uppercase;
 	}
 
 	& h1{

@@ -123,7 +123,21 @@ document.body.addEventListener('mouseup', (e:MouseEvent) => {
 		})
 	}
 
+	// Сабмит формы обратной связи
+	let form = <HTMLFormElement>document.querySelector('#contact-form');
+	form.addEventListener('submit', function(e:SubmitEvent){
+		e.preventDefault();
+		// ==== Отправка запроса по Ajax
+
+		// ==== Отправка запроса по Ajax
+		M.toast({html:'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'});
+	})
+
 })();
+
+
+
+
 
 /**
  * Обновление классов ссылок в Navbar при скролле
@@ -508,6 +522,7 @@ function initThreeApp(){
 	app.on('lost-intersect', (e:MouseEvent) => {
 		canvas.style.cursor = 'default';
 
+		if(e === undefined) return;
 		let path = e.composedPath();
 		let tooltipPath = path.filter((el:HTMLElement) => {
 			return el.className == 'tooltip'

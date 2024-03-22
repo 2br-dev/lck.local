@@ -344,6 +344,7 @@ body main#main section#rent .rent-wrapper .rent-card {
 body main#main section#rent .rent-wrapper .rent-card .price {
     font-size: clamp(21px, 3vw, 46px);
     line-height: 1.5em;
+    font-family: 'Involve';
 }
 
 @media (max-width: 600px) {

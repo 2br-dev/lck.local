@@ -322,6 +322,7 @@ body{
 						& .price{
 							font-size: clamp(21px, 3vw, 46px);
 							line-height: 1.5em;
+							font-family: 'Involve';
 
 							@media(max-width: $small){
 								font-size: clamp(32px, 3vw, 46px);

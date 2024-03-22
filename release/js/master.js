@@ -86452,6 +86452,18 @@ document.body.addEventListener('mouseup', function (e) {
       jquery__WEBPACK_IMPORTED_MODULE_2__(el).toggleClass('active');
     });
   }
+
+  // Сабмит формы обратной связи
+  var form = document.querySelector('#contact-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // ==== Отправка запроса по Ajax
+
+    // ==== Отправка запроса по Ajax
+    materialize_css__WEBPACK_IMPORTED_MODULE_3__.toast({
+      html: 'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'
+    });
+  });
 })();
 
 /**
@@ -86754,6 +86766,7 @@ function initThreeApp() {
   // Снятие подсветки с объекта, когда курсор мыши ушёл с объекта
   app.on('lost-intersect', function (e) {
     canvas.style.cursor = 'default';
+    if (e === undefined) return;
     var path = e.composedPath();
     var tooltipPath = path.filter(function (el) {
       return el.className == 'tooltip';
