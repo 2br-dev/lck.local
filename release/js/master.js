@@ -86455,14 +86455,33 @@ document.body.addEventListener('mouseup', function (e) {
 
   // Сабмит формы обратной связи
   var form = document.querySelector('#contact-form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    // ==== Отправка запроса по Ajax
+  if (form !== null) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // ==== Отправка запроса по Ajax
 
-    // ==== Отправка запроса по Ajax
-    materialize_css__WEBPACK_IMPORTED_MODULE_3__.toast({
-      html: 'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'
+      // ==== Отправка запроса по Ajax
+      materialize_css__WEBPACK_IMPORTED_MODULE_3__.toast({
+        html: 'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'
+      });
     });
+  }
+  jquery__WEBPACK_IMPORTED_MODULE_2__('body').on('click', 'a', function (e) {
+    var link = e.currentTarget;
+    var href = new URL(link.href);
+    var suffix = document.body.className.replace('keyboard_focused ', '');
+    var isHash = href.pathname == location.pathname || location.pathname == "/index_".concat(suffix, ".html") && href.pathname == '/';
+    var newLocation;
+    if (!isHash) {
+      e.preventDefault();
+      if (href.pathname == "/") {
+        var anchor = href.hash;
+        newLocation = href.href.replace('#', 'index_' + suffix + '.html#');
+      } else {
+        newLocation = href.href.replace('.html', '_' + suffix + '.html');
+      }
+      window.location.href = newLocation;
+    }
   });
 })();
 

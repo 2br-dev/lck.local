@@ -13,8 +13,20 @@
 
 @font-face {
 	font-family: 'Involve';
-	src: url('/fonts/Involve-Regular.ttf');
+	src: url('/fonts/involve-regular.ttf');
 	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Tilda Sans';
+	src: url('/fonts/tilda-sans_bold.ttf');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('/fonts/bebas neue bold.otf');
+	font-weight: 700;
 }
 
 body{
@@ -52,5 +64,25 @@ body{
 	& h4{
 		font-size: clamp(18px, 5vw, 32px);
 		font-variation-settings: 'wght' 300;
+	}
+
+	&.involve{
+
+		& h1, & h2, & h3, & h4{
+			font-family: 'Involve';
+		}
+	}
+
+	&.tilda{
+
+		& h1, & h2, & h3, & h4{
+			font-family: 'Tilda Sans';
+		}
+	}
+
+	&.bebas{
+		& h1, & h2, & h3, & h4{
+			font-family: 'Bebas Neue';
+		}
 	}
 }

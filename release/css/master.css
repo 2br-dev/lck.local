@@ -6410,8 +6410,20 @@ body .disabled {
 
 @font-face {
     font-family: 'Involve';
-  src: url("/fonts/Involve-Regular.ttf");
+  src: url("/fonts/involve-regular.ttf");
   font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Tilda Sans';
+  src: url("/fonts/tilda-sans_bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+  src: url("/fonts/bebas neue bold.otf");
+  font-weight: 700;
 }
 
 body {
@@ -6448,4 +6460,16 @@ body h3 {
 body h4 {
     font-size: clamp(18px, 5vw, 32px);
     font-variation-settings: 'wght' 300;
+}
+
+body.involve h1, body.involve h2, body.involve h3, body.involve h4 {
+    font-family: 'Involve';
+}
+
+body.tilda h1, body.tilda h2, body.tilda h3, body.tilda h4 {
+    font-family: 'Tilda Sans';
+}
+
+body.bebas h1, body.bebas h2, body.bebas h3, body.bebas h4 {
+    font-family: 'Bebas Neue';
 }

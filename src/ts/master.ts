@@ -125,12 +125,36 @@ document.body.addEventListener('mouseup', (e:MouseEvent) => {
 
 	// Сабмит формы обратной связи
 	let form = <HTMLFormElement>document.querySelector('#contact-form');
-	form.addEventListener('submit', function(e:SubmitEvent){
-		e.preventDefault();
-		// ==== Отправка запроса по Ajax
+	if(form !== null){
+		form.addEventListener('submit', function(e:SubmitEvent){
+			e.preventDefault();
+			// ==== Отправка запроса по Ajax
+	
+			// ==== Отправка запроса по Ajax
+			M.toast({html:'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'});
+		})
+	}
 
-		// ==== Отправка запроса по Ajax
-		M.toast({html:'Спасибо за ваше обращение! Мы свяжемся с Вами в ближайшее время!'});
+	$('body').on('click', 'a', function(e:JQuery.ClickEvent){
+
+		let link = <HTMLLinkElement>e.currentTarget;
+		let href = new URL(link.href);
+		let suffix = document.body.className.replace('keyboard_focused ', '');
+		let isHash = href.pathname == location.pathname || (location.pathname == `/index_${suffix}.html` && href.pathname == '/');
+		let newLocation;
+		
+		if(!isHash){
+			e.preventDefault();
+			if(href.pathname == "/"){
+				let anchor = href.hash;
+				newLocation = href.href.replace('#',  'index_'+suffix+'.html#');
+			}else{
+				newLocation = href.href.replace('.html',  '_'+suffix+'.html')
+			}
+
+			window.location.href = newLocation;
+		}
+		
 	})
 
 })();
