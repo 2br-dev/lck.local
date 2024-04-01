@@ -7,26 +7,21 @@
 }
 
 @font-face {
-	font-family: 'Science Gothic';
-	src: url('/fonts/science-gothic.ttf');
-}
-
-@font-face {
 	font-family: 'Involve';
 	src: url('/fonts/involve-regular.ttf');
 	font-weight: normal;
 }
 
 @font-face {
-	font-family: 'Tilda Sans';
-	src: url('/fonts/tilda-sans_bold.ttf');
-	font-weight: 700;
+	font-family: 'Actay';
+	src: url('/fonts/actay-regular.otf');
+	font-weight: 400;
 }
 
 @font-face {
-	font-family: 'Bebas Neue';
-	src: url('/fonts/bebas neue bold.otf');
-	font-weight: 700;
+	font-family: 'Igra';
+	src: url('/fonts/igra-sans.otf');
+	font-weight: 400;
 }
 
 body{
@@ -73,16 +68,22 @@ body{
 		}
 	}
 
-	&.tilda{
+	&.actay{
 
 		& h1, & h2, & h3, & h4{
-			font-family: 'Tilda Sans';
+			font-family: 'Actay';
 		}
 	}
 
-	&.bebas{
+	&.vela{
 		& h1, & h2, & h3, & h4{
-			font-family: 'Bebas Neue';
+			font-family: 'Vela Sans';
+		}
+	}
+
+	&.igra{
+		& h1, & h2, & h3, & h4{
+			font-family: 'Igra';
 		}
 	}
 }

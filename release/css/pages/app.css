@@ -123,6 +123,15 @@ body main#app section#hero .elements-wrapper .elements li img {
     transition: box-shadow .2s;
 }
 
+@media (max-width: 1500px) {
+    body main#app section#hero .elements-wrapper .elements li img {
+        aspect-ratio: 16 / 9;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
 body main#app section#hero .elements-wrapper .elements li span {
     display: block;
 }

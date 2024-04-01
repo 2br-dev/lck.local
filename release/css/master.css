@@ -6404,26 +6404,21 @@ body .disabled {
 }
 
 @font-face {
-    font-family: 'Science Gothic';
-  src: url("/fonts/science-gothic.ttf");
-}
-
-@font-face {
     font-family: 'Involve';
   src: url("/fonts/involve-regular.ttf");
   font-weight: normal;
 }
 
 @font-face {
-    font-family: 'Tilda Sans';
-  src: url("/fonts/tilda-sans_bold.ttf");
-  font-weight: 700;
+    font-family: 'Actay';
+  src: url("/fonts/actay-regular.otf");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Bebas Neue';
-  src: url("/fonts/bebas neue bold.otf");
-  font-weight: 700;
+    font-family: 'Igra';
+  src: url("/fonts/igra-sans.otf");
+  font-weight: 400;
 }
 
 body {
@@ -6466,10 +6461,14 @@ body.involve h1, body.involve h2, body.involve h3, body.involve h4 {
     font-family: 'Involve';
 }
 
-body.tilda h1, body.tilda h2, body.tilda h3, body.tilda h4 {
-    font-family: 'Tilda Sans';
+body.actay h1, body.actay h2, body.actay h3, body.actay h4 {
+    font-family: 'Actay';
 }
 
-body.bebas h1, body.bebas h2, body.bebas h3, body.bebas h4 {
-    font-family: 'Bebas Neue';
+body.vela h1, body.vela h2, body.vela h3, body.vela h4 {
+    font-family: 'Vela Sans';
+}
+
+body.igra h1, body.igra h2, body.igra h3, body.igra h4 {
+    font-family: 'Igra';
 }

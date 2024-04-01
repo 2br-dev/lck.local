@@ -291,20 +291,24 @@ var App = /*#__PURE__*/function () {
           material.depthWrite = true;
           material.side = three__WEBPACK_IMPORTED_MODULE_0__.DoubleSide;
           material.alphaMap = alphaTexture;
-          alphaTexture.generateMipmaps = false;
-          alphaTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-          alphaTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-          alphaTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
-          material.alphaMap = alphaTexture;
-          material.alphaMap.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+          if (alphaTexture != null) {
+            alphaTexture.generateMipmaps = false;
+            alphaTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+            alphaTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+            alphaTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+            material.alphaMap = alphaTexture;
+            material.alphaMap.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+          }
         }
-        diffuseTexture.generateMipmaps = false;
-        diffuseTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-        diffuseTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-        diffuseTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+        if (diffuseTexture != null) {
+          diffuseTexture.generateMipmaps = false;
+          diffuseTexture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+          diffuseTexture.magFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+          diffuseTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+          material.map = diffuseTexture;
+          material.map.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+        }
         this.renderer.capabilities.maxTextureSize = 4096;
-        material.map = diffuseTexture;
-        material.map.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
       } else {
         material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial();
         material.Emissive = 5;
@@ -401,6 +405,20 @@ var App = /*#__PURE__*/function () {
       this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
       this.composer.setSize(width, height);
+      var minDistance = 60;
+      var maxDistance = 80;
+      var minWidth = 1500;
+      var maxWidth = 1920;
+      var currentWidth = window.innerWidth;
+      var windowPercent = (currentWidth - minWidth) / (maxWidth - minWidth);
+      var floorDistance = maxDistance - minDistance;
+      var distance = floorDistance * windowPercent + minDistance;
+      if (distance < minDistance) distance = minDistance;
+      if (distance > maxDistance) distance = maxDistance;
+      console.log(distance);
+      this.camera.position.set(0, 20, distance);
+      this.camera.lookAt(0, 30, 0);
+      this.camera.updateWorldMatrix(false, true);
       if (this.effectFXAA) {
         this.effectFXAA.uniforms['resolution'].value.set(1 / width, 1 / height);
       }

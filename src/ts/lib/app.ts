@@ -113,7 +113,7 @@ class App{
 			this.triggerEvent('mouseup', this.mousepos);
 		}.bind(this));
 
-		this.container = canvas.parentElement;
+		this.container = <HTMLElement>canvas.parentElement;
 
 		this.container.addEventListener('mouseleave', () => {
 			this.triggerEvent('mouseleave');
@@ -310,8 +310,8 @@ class App{
 
 		const textureLoader:THREE.TextureLoader = new TextureLoader();
 
-		let diffuseTexture:THREE.Texture
-		let alphaTexture:THREE.Texture
+		let diffuseTexture:THREE.Texture | null
+		let alphaTexture:THREE.Texture | null
 
 		let material;
 
@@ -374,24 +374,27 @@ class App{
 				(material as THREE.MeshBasicMaterial).depthWrite = true;
 				(material as THREE.MeshBasicMaterial).side = THREE.DoubleSide;
 				material.alphaMap = alphaTexture;
-				alphaTexture.generateMipmaps = false;
-				alphaTexture.minFilter = THREE.LinearFilter;
-				alphaTexture.magFilter = THREE.LinearFilter;
-				alphaTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
-
-				material.alphaMap = alphaTexture;
-				material.alphaMap.minFilter = THREE.LinearFilter;
+				if(alphaTexture != null){
+					alphaTexture.generateMipmaps = false;
+					alphaTexture.minFilter = THREE.LinearFilter;
+					alphaTexture.magFilter = THREE.LinearFilter;
+					alphaTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+					material.alphaMap = alphaTexture;
+					material.alphaMap.minFilter = THREE.LinearFilter;
+				}
 			}
 
+			if(diffuseTexture != null){
+				diffuseTexture.generateMipmaps = false;
+				diffuseTexture.minFilter = THREE.LinearFilter;
+				diffuseTexture.magFilter = THREE.LinearFilter;
+				diffuseTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+				material.map = diffuseTexture;
+				material.map.minFilter = THREE.LinearFilter;
+			}
 
-			diffuseTexture.generateMipmaps = false;
-			diffuseTexture.minFilter = THREE.LinearFilter;
-			diffuseTexture.magFilter = THREE.LinearFilter;
-			diffuseTexture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
 			this.renderer.capabilities.maxTextureSize = 4096;
 			
-			material.map = diffuseTexture;
-			material.map.minFilter = THREE.LinearFilter;
 
 
 		}else{
@@ -495,6 +498,27 @@ class App{
 		
 		this.camera.updateProjectionMatrix();
 		this.composer.setSize(width, height);
+
+		let minDistance = 60;
+		let maxDistance = 80;
+		let minWidth = 1500;
+		let maxWidth = 1920;
+
+		let currentWidth = window.innerWidth;		
+		let windowPercent = (currentWidth - minWidth) / (maxWidth - minWidth);
+
+		let floorDistance = maxDistance - minDistance;
+
+		let distance = (floorDistance * windowPercent) + minDistance;
+
+		if(distance < minDistance) distance = minDistance;
+		if(distance > maxDistance) distance = maxDistance;
+		console.log(distance);
+		
+
+		this.camera.position.set(0, 20, distance);
+		this.camera.lookAt(0,30,0);	
+		this.camera.updateWorldMatrix(false, true);
 		
 		if(this.effectFXAA){
 			this.effectFXAA.uniforms[ 'resolution' ].value.set( 
