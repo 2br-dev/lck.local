@@ -182,8 +182,18 @@ var App = /*#__PURE__*/function () {
     key: "setupCameras",
     value: function setupCameras() {
       var canvas = this.canvas;
+      var minDistance = 60;
+      var maxDistance = 80;
+      var minWidth = 1500;
+      var maxWidth = 1920;
+      var currentWidth = window.innerWidth;
+      var windowPercent = (currentWidth - minWidth) / (maxWidth - minWidth);
+      var floorDistance = maxDistance - minDistance;
+      var distance = floorDistance * windowPercent + minDistance;
+      if (distance < minDistance) distance = minDistance;
+      if (distance > maxDistance) distance = maxDistance;
       this.camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, .1, 180);
-      this.camera.position.set(0, 20, 80);
+      this.camera.position.set(0, 20, distance);
       this.camera.name = "Main camera";
       this.camera.lookAt(0, 30, 0);
       this.camera.updateWorldMatrix(false, true);
@@ -415,7 +425,6 @@ var App = /*#__PURE__*/function () {
       var distance = floorDistance * windowPercent + minDistance;
       if (distance < minDistance) distance = minDistance;
       if (distance > maxDistance) distance = maxDistance;
-      console.log(distance);
       this.camera.position.set(0, 20, distance);
       this.camera.lookAt(0, 30, 0);
       this.camera.updateWorldMatrix(false, true);

@@ -249,8 +249,21 @@ class App{
 
 		let canvas = this.canvas;
 
+		let minDistance = 60;
+		let maxDistance = 80;
+		let minWidth = 1500;
+		let maxWidth = 1920;
+
+		let currentWidth = window.innerWidth;		
+		let windowPercent = (currentWidth - minWidth) / (maxWidth - minWidth);
+		let floorDistance = maxDistance - minDistance;
+		let distance = (floorDistance * windowPercent) + minDistance;
+
+		if(distance < minDistance) distance = minDistance;
+		if(distance > maxDistance) distance = maxDistance;
+
 		this.camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, .1, 180);
-		this.camera.position.set(0, 20, 80);
+		this.camera.position.set(0, 20, distance);
 		this.camera.name = "Main camera";
 		this.camera.lookAt(0,30,0);	
 		this.camera.updateWorldMatrix(false, true);
@@ -506,15 +519,11 @@ class App{
 
 		let currentWidth = window.innerWidth;		
 		let windowPercent = (currentWidth - minWidth) / (maxWidth - minWidth);
-
 		let floorDistance = maxDistance - minDistance;
-
 		let distance = (floorDistance * windowPercent) + minDistance;
 
 		if(distance < minDistance) distance = minDistance;
 		if(distance > maxDistance) distance = maxDistance;
-		console.log(distance);
-		
 
 		this.camera.position.set(0, 20, distance);
 		this.camera.lookAt(0,30,0);	
