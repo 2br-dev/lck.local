@@ -24,6 +24,18 @@
 	font-weight: 400;
 }
 
+@font-face{
+	font-family: 'Bebas';
+	src: url('/fonts/bebas neue bold.otf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Tilda';
+	src: url('/fonts/tilda-sans_bold.ttf');
+	font-weight: bold;
+}
+
 body{
 
 	font-family: 'Vela Sans';
@@ -84,6 +96,18 @@ body{
 	&.igra{
 		& h1, & h2, & h3, & h4{
 			font-family: 'Igra';
+		}
+	}
+
+	&.bebas{
+		& h1, & h2, & h3, & h4{
+			font-family: 'Bebas';
+		}
+	}
+
+	&.tilda{
+		& h1, & h2, & h3, & h4{
+			font-family: 'Tilda';
 		}
 	}
 }

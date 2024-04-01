@@ -6421,6 +6421,18 @@ body .disabled {
   font-weight: 400;
 }
 
+@font-face {
+    font-family: 'Bebas';
+  src: url("/fonts/bebas neue bold.otf");
+  font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Tilda';
+  src: url("/fonts/tilda-sans_bold.ttf");
+  font-weight: bold;
+}
+
 body {
     font-family: 'Vela Sans';
     font-size: clamp(18px, 2vw, 24px);
@@ -6471,4 +6483,12 @@ body.vela h1, body.vela h2, body.vela h3, body.vela h4 {
 
 body.igra h1, body.igra h2, body.igra h3, body.igra h4 {
     font-family: 'Igra';
+}
+
+body.bebas h1, body.bebas h2, body.bebas h3, body.bebas h4 {
+    font-family: 'Bebas';
+}
+
+body.tilda h1, body.tilda h2, body.tilda h3, body.tilda h4 {
+    font-family: 'Tilda';
 }
